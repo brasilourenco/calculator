@@ -17,7 +17,7 @@ public class Calculator {
         return number1 / number2;
     }*/
 
-    public double add(double number1, double number2) {
+    /*public double add(double number1, double number2) {
         return number1 + number2;
     }
 
@@ -35,5 +35,21 @@ public class Calculator {
             return 0;
         }
         return number1 / number2;
+    }*/
+
+    public double dbl(double number1) {
+        return number1 * 2;
+    }
+
+    public double tri(double number1) {
+        return number1 * 3;
+    }
+
+    public double half(double number1) {
+        return number1 / 2;
+    }
+
+    public double quarter(double number1) {
+        return number1 / 4;
     }
 }
