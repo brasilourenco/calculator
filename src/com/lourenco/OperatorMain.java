@@ -4,56 +4,47 @@ import java.util.Scanner;
 
 public class OperatorMain {
     public static void main(String[] args) {
+        CalculatorOperator count = new CalculatorOperator();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name");
-
         String userName = scanner.nextLine();
-        System.out.println(userName + " chose your operator:  ");
-        double inputNumber1 = scanner.nextDouble();
-        System.out.println("now enter your 1st number: ");
-        double inputNumber2 = scanner.nextDouble();
-        System.out.println("now enter your 2nd number: ");
-        double inputNumber3 = scanner.nextDouble();
+        while (true) {
+            System.out.println(userName + " chose your operator: ");
+            System.out.println("enter 1 for add");
+            System.out.println("enter 2 for sub");
+            System.out.println("enter 3 for mul");
+            System.out.println("enter 4 for div");
+            byte operator = scanner.nextByte();
+            System.out.println("now enter your 1st number: ");
+            double inputNumber1 = scanner.nextDouble();
+            System.out.println("now enter your 2nd number: ");
+            double inputNumber2 = scanner.nextDouble();
 
-
-        CalculatorOperator count = new CalculatorOperator();
-        double result = count.add(inputNumber1, inputNumber2, inputNumber3);
-        System.out.println(userName + " the sum of " + inputNumber2 + " + " + inputNumber3 + " = " + result + "\n");
-
-        System.out.println("################################################################################");
-
-        System.out.println(userName + " chose your operator:  ");
-        double inputNumber4 = scanner.nextDouble();
-        System.out.println("now enter your 1st number: ");
-        double inputNumber5 = scanner.nextDouble();
-        System.out.println("now enter your 2nd number: ");
-        double inputNumber6 = scanner.nextDouble();
-
-        double result2 = count.sub(inputNumber4, inputNumber5, inputNumber6);
-        System.out.println(userName + " the subtraction of " + inputNumber5 + " - " + inputNumber6 + " = " + result2 + "\n");
-
-        System.out.println("################################################################################");
-
-        System.out.println(userName + " chose your operator:  ");
-        double inputNumber7 = scanner.nextDouble();
-        System.out.println("now enter your 1st number: ");
-        double inputNumber8 = scanner.nextDouble();
-        System.out.println("now enter your 2nd number: ");
-        double inputNumber9 = scanner.nextDouble();
-
-        double result3 = count.mul(inputNumber7, inputNumber8, inputNumber9);
-        System.out.println(userName + " the multiplication of " + inputNumber8 + " x " + inputNumber9 + " = " + result3 + "\n");
-
-        System.out.println("################################################################################");
-
-        System.out.println(userName + " chose your operator:  ");
-        double inputNumber10 = scanner.nextDouble();
-        System.out.println("now enter your 1st number: ");
-        double inputNumber11 = scanner.nextDouble();
-        System.out.println("now enter your 2nd number: ");
-        double inputNumber12 = scanner.nextDouble();
-
-        double result4 = count.div(inputNumber10, inputNumber11, inputNumber12);
-        System.out.println(userName + " the division of " + inputNumber11 + " : " + inputNumber12 + " = " + result4 + "\n");
+            if (operator == 1) {
+                double result = count.add(inputNumber1, inputNumber2);
+                System.out.println(userName + " the sum of " + inputNumber1 + " + " + inputNumber2 + " = " + result);
+            } else if (operator == 2) {
+                double result1 = count.sub(inputNumber1, inputNumber2);
+                System.out.println(userName + " the subtraction of " + inputNumber1 + " - " + inputNumber2 + " = " + result1);
+            } else if (operator == 3) {
+                double result2 = count.mul(inputNumber1, inputNumber2);
+                System.out.println(userName + " the multiplication of " + inputNumber1 + " x " + inputNumber2 + " = " + result2);
+            } else if (operator == 4) {
+                if (inputNumber2 == 0) {
+                    System.err.println("You cannot divide by 0!");
+                    System.exit(0);
+                }
+                double result3 = count.div(inputNumber1, inputNumber2);
+                System.out.println(userName + " the division of " + inputNumber1 + " : " + inputNumber2 + " = " + result3);
+            }
+            System.out.println("Do you want to continue?");
+            System.out.println("enter 1 for yes");
+            System.out.println("enter 2 for no");
+            byte yesNo = scanner.nextByte();
+            if (yesNo == 2) {
+                System.out.println("Ok, goodbye! :)");
+                System.exit(0);
+            }
+        }
     }
 }
